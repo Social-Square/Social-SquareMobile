@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.social.square"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Social-Square</name>
+
+    <description>
+Social-Square
+    </description>
+
+    <author href="https://social-square.oa.to" email="noo.n@develoid.com">
+       최지원 , 이세정 , 조우현
+    </author>
+<preference name="android-minSdkVersion" value="10" />
+ <preference name="android-maxSdkVersion" value="15" />
+<icon src="icon.png" />
+
+</widget>

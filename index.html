@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Social-Square Mobile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+<script src="phonegap.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+	<script src="assets/searchRank/searchRank.js"></script>
+	<script type="text/javascript" src="assets/men.js"></script>
+	    <script src="assets/twitter.js" type="text/javascript" charset="utf-8"></script>
+<link rel="shortcut icon" href="etcc/favicon.ico" type="image/x-icon">
+<link rel="icon" href="etcc/favicon.ico" type="image/x-icon">
+   	<link href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb' rel='stylesheet' type='text/css' />
+<script>
+	var userr = "computers_bot";
+				function se(){
+					var loc=searchin.value;
+					window.open("http://www.google.com/search?q="+loc);
+				}
+
+    getTwitters('tweet', {
+        id: userr, 
+        clearContents: true, // leave the original message in place
+        count: 28, 
+        withFriends: true,
+        ignoreReplies: false,
+        template: '<span class="twitterPrefix"><img height="48" width="48" src="%user_profile_image_url%" /></span><div style="position:relative;top:-46px;left:53px;"><span class="twitterStatus">&nbsp;&nbsp;&nbsp;%text%</span> <em class="twitterTime"><a href="http://twitter.com/%user_screen_name%/statuses/%id%"></a></div></em>'
+    });
+	$(document).ready(function(){
+	    $('#contents').twitterMentions(['infectedfx',userr],{ 
+			avatar : true,
+			maximum : 100,
+			ulClass : 'twitter-mentions',
+			odd : true,
+			oddClass : 'odd'
+		});
+	});
+ 
+</script>
+	<style type="text/css" media="screen">
+			a {
+				color:#000;
+				text-decoration:none;
+			}
+			a:hover {
+				color: skyblue;
+			}
+</style>
+
+<style type="text/css" media="screen">
+body {
+	font-family: NanumGothicWeb;
+	font-size:12px;
+}
+#content {
+	width:350px;
+	margin:0 auto 50px auto;
+}
+ul.twitter-mentions {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul.twitter-mentions li {
+	overflow:hidden;
+	padding:5px 10px;
+	border-bottom:1px dotted #CCC;
+}
+ul.twitter-mentions img {
+	float:left;
+	border:1px dotted #CCC;
+	padding:2px;
+	margin:0 10px 0 0;
+}
+img[src="%user_profile_image_url%" ] {
+	float:left;
+	border:1px dotted #CCC;
+	padding:2px;
+	margin:0 10px 0 0;
+}
+
+</style>
+</head>
+
+<body>
+<div data-role="page" id="home">
+ <div data-role="header">
+  <h1>Social-Square Mobile!</h1>
+ </div>
+ <div data-role="content" style="height:550px;">
+		<div style="position:absolute;width:85%;height:2%;top:8%;left:2%;">
+			<input id="searchin" size=6 style="font-size:10pt;color:black;background-color:transparent;width:100%;height:100%;"></input>
+		</div>
+		<div style="position:absolute;width:0.1%;height:0.1%;top:6%;right:8%;"><img src="assets/searchRank/search.png" id="searchBtn" onclick="se()"></div>
+		<div id="divsearchRank" style="position:absolute;top:18%;left:-3%;width:100%;height:40%;z-index:2;">
+			<div style="position:absolute;bottom:0%;left:0%;">
+			</div>
+		</div>
+ </div>
+<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="home" class="ui-btn-active ui-state-persist">Home</a></li>
+			<li><a href="twitter">Twitter</a></li>
+			<li><a href="weather">Weather</a></li>
+			<li><a href="feed">RSS</a></li>
+			<li><a href="memo">Memo</a></li>
+		</ul>
+	</div>
+ </div>
+</div>
+// 트위터 모듈
+
+<div data-role="page" id="twitter" data-fullscreen="true">
+ <div data-role="header"   data-position="fixed">
+  <h1>Recent Twitt</h1>
+ </div>
+ <div data-role="content" style="height:2000px;">
+        <div style="position:absolute;left:0%;top:2%;" class="twitters" id="tweet"><img src="assets/etcc/images/ajax-loader.gif"></div></p></div>
+		
+<div data-role="footer"  data-position="fixed">
+	<div data-role="navbar" >
+		<ul>
+			<li><a href="twitt" class="ui-btn-active ui-state-persist">Twitter</a></li>
+			<li><a href="men">Mention</a></li>
+		</ul>
+	</div>
+ </div>
+ </div>
+</body>
+</HTML>
